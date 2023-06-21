@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useWorkoutsContext } from "../workouts/useWorkoutsContext";
 
 export const useLogout = () => {
   const { dispatch } = useAuthContext();
+  const { dispatch: workoutsDispatch } = useWorkoutsContext();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
@@ -27,6 +29,7 @@ export const useLogout = () => {
 
         // Update the Auth Context
         dispatch({ type: "CLEAR_AUTH" });
+        workoutsDispatch({type: "SET_WORKOUTS", payload: null})
 
         setIsLoading(false);
         setError(null);

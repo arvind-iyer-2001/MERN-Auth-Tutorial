@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCreateNewWorkout } from "../hooks/workouts/useCreateNewWorkout";
+// import { useAuthContext } from '../hooks/auth/useAuthContext';
 
 const WorkoutForm = () => {
   const [title, setTitle] = useState('');
@@ -7,6 +8,8 @@ const WorkoutForm = () => {
   const [reps, setReps] = useState('');
 
   const {createNewWorkout, error, emptyFields} = useCreateNewWorkout();
+
+  // const { user } = useAuthContext();
 
   const resetFields = () => {
     setTitle('');
@@ -16,8 +19,9 @@ const WorkoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    
     await createNewWorkout(title, load, reps, resetFields);
+    
   }
 
   return (

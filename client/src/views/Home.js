@@ -3,12 +3,13 @@ import React, {useEffect} from 'react';
 import WorkoutForm from '../component/WorkoutForm';
 import WorkoutDetails from '../component/WorkoutDetails';
 import { useFetchWorkouts } from '../hooks/workouts/useFetchWorkouts';
+// import { useAuthContext } from '../hooks/auth/useAuthContext';
+
 
 const Home = () => {
     const {workouts, fetchWorkouts, error} = useFetchWorkouts();
-
+    // const { user } = useAuthContext();
     useEffect(() => {
-        
         fetchWorkouts();
     })
 
@@ -28,7 +29,7 @@ const Home = () => {
             }</div> 
             <WorkoutForm />
         </div>
-      )
+    )
 }
 
 export default Home

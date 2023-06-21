@@ -1,13 +1,16 @@
 import { useDeleteWorkout } from '../hooks/workouts/useDeleteWorkout'
+import { useAuthContext } from '../hooks/auth/useAuthContext';
 
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import React from 'react'
 
 const WorkoutDetails = ({workout}) => {    
     const { deleteWorkout } = useDeleteWorkout();
-
+    const { user } = useAuthContext();
     const handleClick = async () => {
-      deleteWorkout(workout);
+      if( user ){
+        deleteWorkout(workout);
+      }
     }
     return (
         <div className="workout-details">

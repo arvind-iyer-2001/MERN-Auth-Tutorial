@@ -13,6 +13,15 @@ const WorkoutSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  user_id:{
+    type: String,
+    required: true,
+    validate: {
+      validator: (value) => mongoose.isValidObjectId(value),
+
+      message: (props) => `${props.value} is not a valid Object ID`,
+    },
+  }
 }, {timestamps: true});
 
 module.exports = mongoose.model("Workout", WorkoutSchema);

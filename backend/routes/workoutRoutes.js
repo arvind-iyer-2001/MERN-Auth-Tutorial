@@ -1,5 +1,6 @@
 const { Router }  = require('express');
 const router = new Router();
+const requireAuth = require('../middleware/requireAuth');
 const {
     workoutsGET, 
     workoutPOST, 
@@ -7,6 +8,10 @@ const {
     workoutPATCH, 
     workoutDELETE
 } = require('../controllers/workoutContollers');
+
+// Middleware before workout
+// Require Authentication before performing CRUD operations
+router.use(requireAuth);
 
 // GET workout data by ID
 router.get('/:id', workoutGETbyID);
