@@ -31,7 +31,7 @@ To get the application up and running, follow these steps:
    ```bash
    npm install
    ```
-https://github.com/arvind-iyer-2001/MERN-Auth-Tutorial
+
 3. Create a `.env` file based on the provided `.env.example` file and set the necessary environment variables.
 
 4. Start the backend server:
