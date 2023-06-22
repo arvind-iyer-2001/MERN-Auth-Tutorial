@@ -1,5 +1,4 @@
 import { createContext, useReducer, useEffect, useState } from "react";
-
 export const AuthContext = createContext();
 
 /**
@@ -39,7 +38,7 @@ export const AuthContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user'));
     console.log(user);
     if (user) {
       dispatch({ type: 'SET_AUTH', payload: user }) 
